@@ -4,7 +4,7 @@
   angular.module('ShoppingListCheckOff', [])
 
   // I chose this method of protection from minification
-  .controller('ToBuyShoppingController', ['$scope', 'ShoppingListCheckOffService', function($scope, ShoppingListCheckOffService) {
+  .controller('ToBuyShoppingController', ['ShoppingListCheckOffService', function(ShoppingListCheckOffService) {
 
     var toBuy = this;
     toBuy.expected = ShoppingListCheckOffService.expected;
@@ -15,16 +15,16 @@
 
   }])
 
-  .controller('AlreadyBoughtShoppingController', ['$scope', 'ShoppingListCheckOffService', function($scope, ShoppingListCheckOffService) {
+  .controller('AlreadyBoughtShoppingController', ['ShoppingListCheckOffService', function(ShoppingListCheckOffService) {
 
     var bought = this;
     bought.done = ShoppingListCheckOffService.done;
     
   }])
 
-  .factory('ShoppingListCheckOffService', function() {
+  .service('ShoppingListCheckOffService', function() {
 
-    var shopServ = {};
+    var shopServ = this;
 
     shopServ.expected = [
       {
@@ -51,7 +51,6 @@
       shopServ.expected.splice(index, 1);
     };
 
-    return shopServ;
   })
   ;
 
