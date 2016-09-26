@@ -11,6 +11,7 @@
 
 
     narrow.getMatchedMenuItems = function(searchTerm) {
+      narrow.found = [];
       MenuSearchService.getMatchedMenuItems(searchTerm)
       .then(function(result) {
         narrow.found = result;
