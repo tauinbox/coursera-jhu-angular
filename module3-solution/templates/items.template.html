@@ -4,8 +4,10 @@
     <ul>
       <li ng-repeat="item in $ctrl.foundItems" class="col-xs-12">
         <div class="row">
-          <div class="col-xs-4">{{item.name}}</div>
-          <button class="col-xs-1" ng-click="$ctrl.onRemove({index: $index});" class="btn btn-info btn-xs">Remove</button>
+          <div class="col-xs-5">{{item.name}}</div>
+          <div class="col-xs-1">
+            <button ng-click="$ctrl.onRemove({index: $index});" class="btn btn-info btn-xs">Remove</button>
+          </div> 
         </div>
       </li>
     </ul>
