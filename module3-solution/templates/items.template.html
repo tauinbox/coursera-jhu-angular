@@ -1,12 +1,17 @@
+<div ng-if="($ctrl.foundItems.length == 0) && $ctrl.searchDone">
+  <h3>Nothing found</h3>
+</div>
+
 <div class="container" ng-if="$ctrl.foundItems.length > 0">
   <div class="row">
     <h3>Found Items:</h3>
     <ul>
       <li ng-repeat="item in $ctrl.foundItems" class="col-xs-12">
         <div class="row">
-          <div class="col-xs-3">{{item.name}}</div>
-          <div class="col-xs-8">{{item.description}}</div>
-          <div class="col-xs-1">
+          <div class="col-sm-3">{{item.name}}</div>
+          <div class="col-sm-1">{{item.short_name}}</div>
+          <div class="col-sm-7">{{item.description}}</div>
+          <div class="col-sm-1">
             <button ng-click="$ctrl.onRemove({index: $index});" class="btn btn-info btn-xs">Remove</button>
           </div> 
         </div>

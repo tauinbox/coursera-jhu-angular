@@ -15,6 +15,7 @@
           // process result and only keep items that match
           var foundItems;
           foundItems = [];
+          searchTerm = searchTerm.toLowerCase();
 
           for(var i=0; i<result.data.menu_items.length; i++) {
             if((result.data.menu_items[i].name.toLowerCase().indexOf(searchTerm) !== -1) || 

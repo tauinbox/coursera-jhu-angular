@@ -7,6 +7,7 @@
     templateUrl: './templates/items.template.html',
     bindings: {
       foundItems: '<',
+      searchDone: '<',
       onRemove: '&'
     }
   });

@@ -8,14 +8,22 @@
 
     var narrow = this;
     narrow.searchTerm = "";
+    narrow.searchDone = false;
 
 
     narrow.getMatchedMenuItems = function(searchTerm) {
       narrow.found = [];
+      narrow.searchDone = false;
+      searchTerm = searchTerm.trim();
+      if (searchTerm.length == 0) {
+        narrow.searchDone = true;
+        return;
+      }
       $rootScope.$broadcast('list:processing', {on: true});
       MenuSearchService.getMatchedMenuItems(searchTerm)
       .then(function(result) {
         narrow.found = result;
+        narrow.searchDone = true;
         $rootScope.$broadcast('list:processing', {on: false});
       });
     };
