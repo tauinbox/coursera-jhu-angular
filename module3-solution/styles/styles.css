@@ -19,7 +19,7 @@ ul>li {
   clear:  both;
 }
 .loader {
-  display: none;
+  display: inline-block;
   margin-left: 5px;
   font-size: 10px;
   float: left;
