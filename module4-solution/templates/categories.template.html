@@ -1,0 +1,8 @@
+<button ui-sref="home">< Back</button>
+
+<h1>Categories</h1>
+
+<ul>
+  <li ng-repeat="category in $ctrl.categoriesData"><a ui-sref="items({categoryShortName: category.short_name})">{{category.name}}</a></li>
+</ul>
+
