@@ -1,40 +1,50 @@
 <div class="container">
-  <h2 class="text-center">The Sign Up form</h2>
+  <h2 class="text-center">Sign Up for Newsletters</h2>
 
-    <form class="form-horizontal" name="signupForm" ng-submit="submitSignup()" novalidate>
+    <form id="signup-form" class="form-horizontal" name="signupForm" ng-submit="supCtrl.submitSignup(supCtrl.signup)" novalidate>
 
       <div class="form-group">
         <label for="firstname" class="col-sm-2 control-label">First Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First Name" ng-model="signup.firstname" required>
+          <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First Name" ng-model="supCtrl.signup.firstname" required>
+          <span ng-if="signupForm.firstname.$error.required && signupForm.firstname.$touched">
+            First Name is required
+          </span>          
         </div>
       </div>
 
       <div class="form-group">
         <label for="lastname" class="col-sm-2 control-label">Last Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Last Name" ng-model="signup.lastname" required>
+          <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Last Name" ng-model="supCtrl.signup.lastname" required>
+          <span ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">
+            Last Name is required
+          </span>          
         </div>
       </div>
 
       <div class="form-group">
-        <label for="emailid" class="col-sm-2 control-label">Email</label>
+        <label for="email" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-10">
-          <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Enter Email" ng-model="signup.email" required>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email" ng-model="supCtrl.signup.email" required>
+          <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+            Must be a valid email address: person@domain.com format
+          </span>          
         </div>
       </div>
 
       <div class="form-group">
         <label for="telnum" class="col-sm-2 control-label">Phone Number</label>
         <div class="col-sm-10">
-          <input type="tel" class="form-control" id="telnum" name="telnum" placeholder="#-###-###-##-##" ng-model="signup.tel">
+          <input type="tel" class="form-control" id="telnum" name="telnum" placeholder="#-###-###-##-##" ng-model="supCtrl.signup.tel" pattern="(\d{1})-(\d{3})-(\d{3})-(\d{2})-(\d{2})">
         </div>
       </div>
 
       <div class="form-group">
         <label for="favoritedish" class="col-sm-2 control-label">Favorite Dish</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="favoritedish" name="favoritedish" placeholder="Enter Menu Number" ng-model="signup.favoritedish" required>
+          <input type="text" class="form-control" id="favoritedish" name="favoritedish" placeholder="Enter Menu Number" ng-model="supCtrl.signup.favoritedish" required>
+          <span ng-if="supCtrl.cantGetItem">No such menu number exists ({{supCtrl.httpError}})</span>
         </div>
       </div>      
 
@@ -45,5 +55,7 @@
       </div>
 
     </form>
+
+    <h3 class="text-center" ng-if="supCtrl.formDone">Your information has been saved</h3>
 
 </div>
