@@ -24,23 +24,33 @@
       </tbody>
     </table>
 
-    <h4 class="text-center">Favorite Dish</h4>
-
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>{{profileCtrl.userInfo.favoritedish.name}}</th>
-          <th>Description</th>
+          <th>Favorite Dish</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>
-            <div class="text-center">
-              <img id="favorite-dish-img" ng-src="{{profileCtrl.imageUrl}}">
+
+            <div class="menu-item-tile">
+              <div class="row">
+                <div class="col-sm-5">
+                  <div class="menu-item-photo">
+                    <div>{{profileCtrl.userInfo.favoritedish.short_name}}</div>
+                    <img class="img-responsive" width="250" height="150" ng-src="{{profileCtrl.imageUrl}}" alt="{{profileCtrl.userInfo.favoritedish.name}}">
+                  </div>
+                  <div class="menu-item-price">{{profileCtrl.userInfo.favoritedish.price_small | currency}}<span> {{profileCtrl.userInfo.favoritedish.small_portion_name}}</span> {{profileCtrl.userInfo.favoritedish.price_large | currency}} <span>{{profileCtrl.userInfo.favoritedish.large_portion_name}}</span></div>
+                </div>
+                <div class="menu-item-description col-sm-7">
+                  <h3 class="menu-item-title">{{profileCtrl.userInfo.favoritedish.name}}</h3>
+                  <p class="menu-item-details">{{profileCtrl.userInfo.favoritedish.description}}</p>
+                </div>
+              </div>
             </div>
+
           </td>
-          <td>{{profileCtrl.userInfo.favoritedish.description}}</td>
         </tr>
       </tbody>
     </table>    
