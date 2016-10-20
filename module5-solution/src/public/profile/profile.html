@@ -2,7 +2,7 @@
 
   <h2 class="text-center">User Info</h2>
 
-  <h3 class="text-center">{{profileCtrl.message}}</h3>
+  <h3 class="text-center" ng-if="!profileCtrl.userInfo">Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></h3>
 
   <div ng-if="profileCtrl.userInfo">
     <table class="table table-bordered">
