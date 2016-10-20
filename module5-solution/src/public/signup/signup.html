@@ -37,6 +37,9 @@
         <label for="telnum" class="col-sm-2 control-label">Phone Number</label>
         <div class="col-sm-10">
           <input type="tel" class="form-control" id="telnum" name="telnum" placeholder="#-###-###-##-##" ng-model="supCtrl.signup.tel" pattern="(\d{1})-(\d{3})-(\d{3})-(\d{2})-(\d{2})">
+          <span ng-if="signupForm.telnum.$invalid">
+            Must be in the format #-###-###-##-##
+          </span>  
         </div>
       </div>
 
