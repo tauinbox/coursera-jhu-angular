@@ -24,7 +24,7 @@
       </tbody>
     </table>
 
-    <table class="table">
+    <table class="table" ng-if="profileCtrl.userInfo.favoritedish">
       <thead>
         <tr>
           <th>Favorite Dish</th>
@@ -54,7 +54,7 @@
         </tr>
       </tbody>
     </table>
-    <hr>  
+    <hr ng-if="profileCtrl.userInfo.favoritedish">
 <!--     <div class="row">
       <div class="col-sm-2">First Name:</div>
       <div class="col-sm-10">

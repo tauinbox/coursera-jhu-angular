@@ -8,7 +8,9 @@
     profileCtrl.userInfo = LocalStorage.getObject('ANGULAR-M5-ASSIGNMENT', false);
 
     if (profileCtrl.userInfo) {
-      profileCtrl.imageUrl = ApiPath + '/images/' + profileCtrl.userInfo.favoritedish.short_name + '.jpg'
+      if (profileCtrl.userInfo.favoritedish) {
+        profileCtrl.imageUrl = ApiPath + '/images/' + profileCtrl.userInfo.favoritedish.short_name + '.jpg'
+      }
     }
 
 
