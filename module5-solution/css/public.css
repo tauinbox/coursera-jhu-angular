@@ -132,6 +132,9 @@ h3.menu-item-title {
 #delete-profile-button {
   margin-top: 20px;
 }
+#userdata-table {
+ margin-top: 50px; 
+}
 /*END PROFILE PAGE*/
 
 /********** Large devices only **********/
