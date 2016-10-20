@@ -2,9 +2,8 @@
   'use strict';
 
   angular.module('public')
-  .controller('SignupController', ['MenuService', 'LocalStorage', function(MenuService, LocalStorage) {
+  .controller('SignupController', ['$scope', 'MenuService', 'LocalStorage', function($scope, MenuService, LocalStorage) {
     var supCtrl = this;
-    supCtrl.signup = {};
     supCtrl.cantGetItem = false;
     supCtrl.formDone = false;
 
@@ -16,6 +15,15 @@
               supCtrl.cantGetItem = false;
               supCtrl.formDone = true;
               console.log(response.data);
+              supCtrl.signup = {
+                firstname: '',
+                lastname: '',
+                email: '',
+                tel: '',
+                favoritedish: ''
+              };
+              $scope.signupForm.$setUntouched();
+              $scope.signupForm.$setPristine();
             },
             function(failure) {
               supCtrl.cantGetItem = true;
