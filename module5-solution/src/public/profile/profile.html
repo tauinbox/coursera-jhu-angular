@@ -1,0 +1,61 @@
+<div class="container">
+
+  <h2 class="text-center">User Info</h2>
+
+  <h3 class="text-center">{{profileCtrl.message}}</h3>
+
+  <div ng-if="profileCtrl.userInfo">
+    <div class="row">
+      <div class="col-sm-2">First Name:</div>
+      <div class="col-sm-10">
+        {{profileCtrl.userInfo.firstname}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2">Last Name:</div>
+      <div class="col-sm-10">
+        {{profileCtrl.userInfo.lastname}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2">Email:</div>
+      <div class="col-sm-10">
+        {{profileCtrl.userInfo.email}}
+      </div>
+    </div>
+
+    <div class="row" ng-if="profileCtrl.userInfo.tel">
+      <div class="col-sm-2">Phone Number:</div>
+      <div class="col-sm-10">
+        {{profileCtrl.userInfo.tel}}
+      </div>
+    </div>
+
+    <h4 class="text-center">Your Favorite Dish</h4>
+
+    <div class="text-center">
+      <img id="favorite-dish-img" ng-src="{{profileCtrl.imageUrl}}">
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2">Name:</div>
+      <div class="col-sm-10">
+        {{profileCtrl.userInfo.favoritedish.name}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2">Description:</div>
+      <div class="col-sm-10">
+        {{profileCtrl.userInfo.favoritedish.description}}
+      </div>
+    </div>  
+
+    <div id="delete-profile-button" class="text-center">
+      <button class="btn btn-primary" ng-click="profileCtrl.deleteProfile()">Delete Profile</button>
+    </div>
+  </div>
+
+</div>
